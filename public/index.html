@@ -4,12 +4,23 @@
     <meta charset="utf-8">
     <title>To Do List</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="./js/bundle.js">
-    </script>
+    <script src="./js/bundle.js"></script>
   </head>
   <body>
 <div id="app">
-
+  <ul>
+    <li v-for="(todo, index) in todos" v-bind:class="todo.highPriority ? 'high-priority':'low-priority' ">
+      <span>{{todo.task}}</span>
+      <span v-if="todo.highPriority">High Priority</span>
+      <span v-if="!todo.highPriority">Low Priority</span>
+      <button v-if="!todo.highPriority" v-on:click="makeHighPriority(index)">Make High Priority</button>
+    </li>
+  </ul>
+  <form v-on:submit.prevent="saveNewTodo">
+    <label for="new-todo">Add a new Task</label>
+    <input id="new-todo" type="text" v-model="newTodo">
+    <input type="submit" value="Save new todo">
+  </form>
 </div>
   </body>
 </html>
