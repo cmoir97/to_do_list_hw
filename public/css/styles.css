@@ -1,5 +1,5 @@
 #app {
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	font-family: 'Lato', sans-serif;
 	color: cornflowerBlue;
@@ -72,4 +72,7 @@ h1 {
 
 body {
   background-color: yellow;
+}
+input[type="radio"]{
+  font-size: 5px;
 }

@@ -5,23 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     el: "#app",
     data: {
       todos: [
-        {task: "Shopping", highPriority: true},
-        {task: "Cleaning", highPriority: false},
-        {task: "Gardening", highPriority: false}
+        {task: "Shopping", highPriority: "High"},
+        {task: "Cleaning", highPriority: "Low"},
+        {task: "Gardening", highPriority: "Low"}
       ],
-      newTodo: ""
+      newTodo: "",
+      newPriority: ""
     },
     methods: {
       saveNewTodo: function(){
         this.todos.push({
           task: this.newTodo,
-          highPriority: false
+          highPriority: this.newPriority
         });
         this.newTodo = ""
       },
-      makeHighPriority: function (index) {
-        this.todos[index].highPriority = true;
-      }
     }
   });
 });
